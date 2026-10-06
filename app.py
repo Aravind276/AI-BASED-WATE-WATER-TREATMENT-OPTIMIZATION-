@@ -302,34 +302,23 @@ if submitted:
     }
 
 
-    try:
+    # ----------------------------------------
+    # Treatment Explanation
+    # ----------------------------------------
 
-        gemini_explanation = generate_treatment_explanation(
-            predicted_label,
-            gemini_parameters,
-            recommended_steps
-        )
+    gemini_explanation = generate_treatment_explanation(
+        predicted_label,
+        gemini_parameters,
+        recommended_steps
+    )
 
+    st.subheader(
+        "Treatment Explanation"
+    )
 
-        st.subheader(
-            "Treatment Explanation"
-        )
-
-
-        st.markdown(
-            gemini_explanation
-        )
-
-
-    except Exception as error:
-
-        st.warning(
-            "Treatment explanation is temporarily unavailable."
-        )
-
-        st.caption(
-            f"Gemini service error: {error}"
-        )
+    st.markdown(
+        gemini_explanation
+    )
 
 
     # ------------------------------------
